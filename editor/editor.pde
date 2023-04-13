@@ -277,11 +277,12 @@ void drawToolsGui(){
   fill(255);
   stroke(0);
   strokeWeight(1);
-  rect(0,H-PX,PX,PX);
+  int saveBtnY = H - 400;
+  rect(0,saveBtnY,PX,PX);
   fill(0);
   textSize(14);
-  text("SAVE",PX/2,H-PX+PX/2-2);
-  if (!mouseOnCanvas() && mousePressed && 0 <= mouseX && mouseX <= PX && H-PX <= mouseY && mouseY <= H){
+  text("SAVE",PX/2,saveBtnY+PX/2-2);
+  if (!mouseOnCanvas() && mousePressed && 0 <= mouseX && mouseX <= PX && saveBtnY <= mouseY && mouseY <= (saveBtnY + PX)){
     
     /* commented out file dialog because Swing's file chooser appears to be occassionally broken and hangs the app forever :(
      */
@@ -568,7 +569,8 @@ void drawEditMode(){
 }
 
 void setup(){
-  size(1000,820);
+  // window size
+  size(1400,850);
   render = createGraphics(W,H);
   layers = new ArrayList<Layer>();
   layers.add(new Layer());
