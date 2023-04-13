@@ -1,8 +1,15 @@
 import processing.embroider.*;
 PEmbroiderGraphics E;
 
-int W = 800;
-int H = 800;
+// should be 4x4 hoop for Brother SE600
+int inch = 254;
+int almost4Inches = (inch * 4) - 100;
+
+int hoopW = almost4Inches;
+int hoopH = almost4Inches;
+
+int W = hoopW;
+int H = hoopH;
 
 int PX = 40;
 
@@ -297,7 +304,7 @@ void drawToolsGui(){
     //}
     
     /* plain old input box */
-    String path = (String)javax.swing.JOptionPane.showInputDialog(null,"Path is relative to the sketch folder, use / for starting absolute paths","Save Embroidery File",javax.swing.JOptionPane.QUESTION_MESSAGE,null,null,"untitled.vp3");
+    String path = (String)javax.swing.JOptionPane.showInputDialog(null,"Path is relative to the sketch folder, use / for starting absolute paths","Save Embroidery File",javax.swing.JOptionPane.QUESTION_MESSAGE,null,null,"test.pes");
     if (path != null && path.length()>0){
         javax.swing.JOptionPane.showMessageDialog(null, "Optimizing stroke order and saving file, this might take a while...");
         writeOut(sketchPath(path));
