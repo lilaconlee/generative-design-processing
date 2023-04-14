@@ -4,9 +4,13 @@
 import processing.embroider.*;
 PEmbroiderGraphics E;
 
+PImage img;
+String imgName = "img1.jpeg";
+
 void setup() {
   noLoop(); 
-  size (1000, 1000);
+  size (1200, 1200);
+   img = loadImage(imgName);
 
   E = new PEmbroiderGraphics(this, width, height);
   String outputFilePath = sketchPath("PEmbroider_ruler.pes");
@@ -32,7 +36,8 @@ void setup() {
   float inch = 25.4*mm;
   float quarterInch = inch/4.0; 
 
-    rect(0,0,inch *4, inch*4);
+  rect(0,0,inch *4, inch*4);
+  image(img, 0, 0, inch*4, inch*4);
 
 
   // Inch ruler:
@@ -47,6 +52,7 @@ void setup() {
       E.line (px, y0, px, y0-cm*0.25);
     }
   }
+
   
 
   E.textSize(2.0); 

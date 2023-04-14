@@ -605,7 +605,6 @@ void draw(){
     render.beginDraw();
     render.clear();
     //render.background(255); // white bg
-    image(img,0,0);
     render.endDraw();
     for (int i = layers.size()-1; i >= 0; i--){
       if (layers.get(i).visible){
@@ -617,6 +616,7 @@ void draw(){
   
   }
   
+  image(img,PX,0,almost4Inches,almost4Inches);
   image(render,PX,0);
   
   stroke(0);
