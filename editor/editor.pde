@@ -13,6 +13,10 @@ int H = hoopH;
 
 int PX = 40;
 
+PImage img;
+// hardcoded bg img
+String imgName = "img1.jpeg";
+
 void defaultSettings(PEmbroiderGraphics E){
   // put additional settings for each layer here
   // e.g. E.hatchAngleDeg(30);
@@ -236,7 +240,6 @@ void drawToolsGui(){
     switchTool(TOOL_VERTEX);
   }
 
-  
   fill(tool==TOOL_PAINT?180:255);
   stroke(0);
   strokeWeight(1);
@@ -583,6 +586,8 @@ void setup(){
   layers.add(new Layer());
   polyBuff = new ArrayList<PVector>();
 
+  img = loadImage(imgName);
+
 }
 
 boolean mouseOnCanvas(){
@@ -592,14 +597,15 @@ boolean mouseOnCanvas(){
 
 void draw(){
   
-  background(100);
+  background(100); // dark grey background color
   
   if (tool == TOOL_EDIT){
     drawEditMode();
   }else if (needsUpdate){
     render.beginDraw();
     render.clear();
-    render.background(255);
+    //render.background(255); // white bg
+    image(img,0,0);
     render.endDraw();
     for (int i = layers.size()-1; i >= 0; i--){
       if (layers.get(i).visible){
