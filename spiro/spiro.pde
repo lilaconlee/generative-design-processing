@@ -3,7 +3,8 @@ PEmbroiderGraphics E;
 
 void setup() {
   noLoop(); 
-  size (800, 800);
+  // 4x4 inch hoop
+  size(916, 916); 
   E = new PEmbroiderGraphics(this, width, height);
   
   String projectTitle = "spiro";
@@ -24,7 +25,7 @@ void setup() {
   E.optimize(); // slow, but good and important
   E.visualize();
   E.endDraw(); // write out the file
-  save(fileName + ".png");
+  save(fileName + "_23" + ".png");
 }
 
 // configures for svg, returns svg output file path

@@ -15,7 +15,7 @@ int PX = 40;
 
 PImage img;
 // hardcoded bg img
-String imgName = "img1.jpeg";
+String imgName = "img5.png";
 
 void defaultSettings(PEmbroiderGraphics E){
   // put additional settings for each layer here
