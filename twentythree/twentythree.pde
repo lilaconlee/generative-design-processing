@@ -15,7 +15,7 @@ void setup() {
   noLoop(); 
   // ONLY USE NUMBERS NOT VARIABLES FOR SIZE DINGUS
   // this should be almost4Inches
-  size(916, 916); // is this the right order? i mean doesn't matter but still
+  size(916, 916);
   E = new PEmbroiderGraphics(this, width, height);
   
   String projectTitle = "twentythree";
