@@ -4,8 +4,10 @@ PEmbroiderGraphics E;
 int almost4Inches = 916;
 
 // STUFF THAT'S GOOD TO CHANGE
-String imgFileName = "test2.bmp"; // change to your file name
+String imgFileName = "dino.bmp"; // change to your file name
 float scale = 1; // how much to scale the pattern up by
+float strokeWeight = 30;
+float strokeSpacing = 3;
 
 void setup() {
   noLoop(); 
@@ -64,8 +66,14 @@ public String pesSetup(String filename) {
 void draw(PImage img) {
   //-------------------
   // Dense concentric hatch from bitmap_image_1
+  /*
+  E.stroke(0, 0, 0); // not sure exactly what the params are here
+  E.strokeWeight(strokeWeight); 
+  E.strokeSpacing(4);
   E.hatchMode(PEmbroiderGraphics.CONCENTRIC); 
   E.hatchSpacing(2.0);
+  E.setStitch(5, 20, 1.0);
+  */
   /* About setStitch from: https://github.com/CreativeInquiry/PEmbroider/blob/f0dc0759fbc8b40034c894849f26835ccacfe98d/PEmbroider_Cheat_Sheet.md
   The setStitch() function is super-important! It allows you to set the following:
 
@@ -75,7 +83,29 @@ void draw(PImage img) {
 
     E.setStitch(minLength, desiredLength, noise);
   */
-  E.setStitch(5, 20, 1.0);
+
+  //-------------------
+  // Based on bitmap_image_1
+  // Draw fat parallel stroke only; no fill. 
+  /*
+  E.stroke(0, 0, 0); 
+  E.noFill(); 
+  E.strokeWeight(strokeWeight); 
+  E.setStitch(5, 30, 1.0);
+  E.strokeMode(PEmbroiderGraphics.TANGENT);
+  E.strokeSpacing(4);
+  */
+
+    //-------------------
+  // Draw fat perpendicular stroke only, no fill. 
+  E.noFill(); 
+  E.stroke(0, 0, 0); 
+  E.setStitch(5, 30, 1.0);
+  E.strokeWeight(strokeWeight); 
+  E.strokeSpacing(strokeSpacing);
+  E.strokeMode(PEmbroiderGraphics.PERPENDICULAR);
+
+
   // E.image(img, x, y);
   E.image(img, 0, 0, almost4Inches,almost4Inches);
 
