@@ -93,9 +93,9 @@ class PerlinPlayground implements PEmbroiderGraphics.VectorField {
   public PVector get(float x, float y) {
     float perlinScale = 10;
     // float deltaX = int(random(10,20));
-    float deltaX = 100;
-    float a = noise(x*perlinScale ,y*perlinScale,1) * PI * 2;
-    float r = noise(x*perlinScale ,y*perlinScale,2) * deltaX;
+    float deltaX = 200;
+    float a = noise(x*perlinScale ,y*perlinScale,1) * PI/4;
+    float r = noise(x*perlinScale ,y*perlinScale,0) * deltaX;
     float dx = cos(a) * r;
     float dy = sin(a) * r;
     return new PVector(dx,dy);
