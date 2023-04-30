@@ -4,7 +4,8 @@ PEmbroiderGraphics E;
 int almost4Inches = 916;
 
 // STUFF THAT'S GOOD TO CHANGE
-String imgFileName = "dino.bmp"; // change to your file name
+String imgFileName = "dino.bmp"; // change to your bmp file name
+String photoFileName = "dino.png"; // change to your color photo file name
 float scale = 1; // how much to scale the pattern up by
 float strokeWeight = 30;
 float strokeSpacing = 3;
@@ -24,8 +25,9 @@ void setup() {
   // SVG
   // String outputFilePath = svgSetup(outputFileName);
 
-  // load img from above filename
-  PImage photo = loadImage(imgFileName); 
+  // load img & photo from above filename
+  PImage photo = loadImage(photoFileName);
+  PImage bmp = loadImage(imgFileName);
   image(photo, 0, 0, almost4Inches,almost4Inches); 
 
   E.setPath(outputFilePath); 
@@ -35,7 +37,7 @@ void setup() {
   E.noStroke(); 
   E.scale(scale);
 
-  draw(photo);
+  draw(bmp);
   
   E.optimize(); // slow, but good and important
   E.visualize();
@@ -64,6 +66,7 @@ public String pesSetup(String filename) {
 }
 
 void draw(PImage img) {
+  // EXTREMELY MESSY CODE BELOW todo: get good
   //-------------------
   // Dense concentric hatch from bitmap_image_1
   /*
