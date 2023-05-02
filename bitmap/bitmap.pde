@@ -4,8 +4,8 @@ PEmbroiderGraphics E;
 int almost4Inches = 916;
 
 // STUFF THAT'S GOOD TO CHANGE
-String imgFileName = "dino.bmp"; // change to your bmp file name
-String photoFileName = "dino.png"; // change to your color photo file name
+String imgFileName = "reaction-diffusion.bmp"; // change to your bmp file name
+String photoFileName = "reaction-diffusion.bmp"; // change to your color photo file name
 float scale = 1; // how much to scale the pattern up by
 float strokeWeight = 30;
 float strokeSpacing = 3;
@@ -69,14 +69,12 @@ void draw(PImage img) {
   // EXTREMELY MESSY CODE BELOW todo: get good
   //-------------------
   // Dense concentric hatch from bitmap_image_1
-  /*
   E.stroke(0, 0, 0); // not sure exactly what the params are here
-  E.strokeWeight(strokeWeight); 
-  E.strokeSpacing(4);
+  // E.strokeWeight(30); 
+  // E.strokeSpacing(4);
   E.hatchMode(PEmbroiderGraphics.CONCENTRIC); 
-  E.hatchSpacing(2.0);
-  E.setStitch(5, 20, 1.0);
-  */
+  E.hatchSpacing(3);
+  // E.setStitch(5, 20, 1.0);
   /* About setStitch from: https://github.com/CreativeInquiry/PEmbroider/blob/f0dc0759fbc8b40034c894849f26835ccacfe98d/PEmbroider_Cheat_Sheet.md
   The setStitch() function is super-important! It allows you to set the following:
 
@@ -101,21 +99,22 @@ void draw(PImage img) {
 
     //-------------------
   // Draw fat perpendicular stroke only, no fill. 
+  /*
   E.noFill(); 
   E.stroke(0, 0, 0); 
-  E.setStitch(5, 30, 1.0);
-  E.strokeWeight(strokeWeight); 
-  E.strokeSpacing(strokeSpacing);
+  // E.setStitch(5, 60, 1.0);
+  E.strokeWeight(35); 
+  E.strokeSpacing(4.5);
   E.strokeMode(PEmbroiderGraphics.PERPENDICULAR);
+  */
+
 
 
   // E.image(img, x, y);
   E.image(img, 0, 0, almost4Inches,almost4Inches);
 
-  /** trying to scale up the pattern, but keep it centered (doesn't work)
-  int offset = 30; // attempt to scale up pattern to extend pattern past the bitmap
-  int offset = int(((almost4Inches * scale) - almost4Inches)/2);
-  E.image(img, 0 - offset, 0 - offset, almost4Inches,almost4Inches);
-  E.image(img, 0 - offset, 0 - offset);
-  **/
+  // trying to scale up the pattern, but keep it centered (doesn't work)
+  // int offset = 20; // attempt to scale up pattern to extend pattern past the bitmap
+  // int offset = int(((almost4Inches * scale) - almost4Inches)/2);
+  // E.image(img, 0 - offset, 0 - offset, almost4Inches,almost4Inches);
 }
