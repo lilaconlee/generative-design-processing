@@ -81,7 +81,7 @@ void draw() {
     E.hatchAngle(radians(angle));
 
     E.hatchMode(randomArrayItem(hatchModes));
-    E.hatchSpacing(random(5,30));
+    E.hatchSpacing(random(10,30));
     E.circle(cellData[i][0], cellData[i][1], cellData[i][2]);
 
     if (colorMode == 0) {
